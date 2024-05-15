@@ -1,6 +1,5 @@
 {
   "name": "aareon-france/sql-attributes-parser",
-  "license": "https://www.aareon.com under a proprietary license",
   "description": "Parser of SQL attributes, which offers the ability to add metadata on SQL queries.",
   "type": "library",
   "authors": [
