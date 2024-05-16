@@ -56,6 +56,20 @@ final class AttributesReaderTest extends TestCase
                 new SqlAttribute('MetaData', ['foo' => 'α', 'bar' => 'β', 'baz' => 'γ']),
             ],
         ];
+        yield 'Many attributes with specific wrapping comments' => [
+            <<<'TXT'
+            -- Ignored as starts with "##" so it is a bash-comment of an attribute. 
+            ##[MetaData(foo: a, bar: b, baz: c)]
+            -- With spaces before, it must work.
+                #[MetaData(foo: A, bar: B, baz: C)]
+            -- With comments after the attribute definition, it must work too.
+            #[MetaData(foo: α, bar: β, baz: γ)] -- With comments.
+            TXT,
+            [
+                new SqlAttribute('MetaData', ['foo' => 'A', 'bar' => 'B', 'baz' => 'C']),
+                new SqlAttribute('MetaData', ['foo' => 'α', 'bar' => 'β', 'baz' => 'γ']),
+            ],
+        ];
     }
 
     /**
