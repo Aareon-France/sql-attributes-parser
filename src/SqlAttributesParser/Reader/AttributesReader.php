@@ -40,7 +40,7 @@ final class AttributesReader implements AttributesReaderInterface
      */
     public function read(string $string): array
     {
-        preg_match_all('/#\[(?<name>\w+)(?:\((?<args>.*)\))?]/msU', $string, $matches);
+        preg_match_all('/^\s*#\[(?<name>\w+)(?:\((?<args>.*)\))?]/msU', $string, $matches);
         return array_map($this->buildSqlAttribute(...), $matches['name'], $matches['args']);
     }
 
