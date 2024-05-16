@@ -65,6 +65,6 @@ digit               = "0" .. "9";
 
 Via composer, you can add the repository in your composer.json by doing:
 ```shell
-composer require aareon/sql-attributes-parser
+composer require aareon-france/sql-attributes-parser
 ```
 
